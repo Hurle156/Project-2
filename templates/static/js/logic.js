@@ -11,11 +11,11 @@ L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
   accessToken: APIkey
 }).addTo(myMap);
 
-var link = "static/data/states_geo.json";
 
-d3.json(link, function(data){
+console.log(p)
 
-  L.geoJson(data, {
+
+  L.geoJson(p, {
     style: function(feature) {
       return{
 
@@ -49,23 +49,50 @@ d3.json(link, function(data){
         
     
       });
-      layer.bindPopup(`<h1> ${feature.properties.NAME} Data</h1> <hr> <p> Number of Picks: ${feature.properties.picks} </p>`);
+      layer.bindPopup(`<h1> ${feature.properties.NAME} Data</h1> <hr> <p> Number of Picks: ${feature.properties.baseball.picks} </p>`);
     
     }
   }).addTo(myMap);
 
-});
 }
 
+function createGeoData(p){
+  var link = "static/data/states_geo.json";
+  var results = [];
 
+  d3.json(link, function(data){
+    results = data.features;
+    
+    
+    // console.log(results[0].properties);
+    for(var i = 0; i < results.length; i++){
+      var properties = results[i].properties;
+      // console.log(properties.NAME);
+      Object.entries(p).forEach(([key, value])=>{
+        // console.log(key)
+        if (properties.NAME == key){
+          properties.baseball = value;
+        }
+        else if(properties.NAME == "District of Columbia"){
+          properties.baseball = {"firstR": 0, "picks": 0, "first": 0}
+        }
+      })
+    
+    }
+    // console.log(results);
+    createMap(results);
+  });
+    
+  
+};
 
 
 function createYearData(year){
-baseballData = [];
-stateData = [];
-d3.json("/all-data", function (data) {
+
+  stateData = [];
+  d3.json("/all-data", function (data) {
  
-  
+  // console.log(data);
   data.forEach(p => {
     if(year == "all"){
       if(p.st in stateData){
@@ -144,6 +171,11 @@ d3.json("/all-data", function (data) {
       }
     }
   });
+  changeStates(stateData);
+  });
+};
+function changeStates(p){
+  baseballData = [];
   d3.json("/states", function (d){
     
     Object.entries(stateData).forEach(([key, value]) => {
@@ -157,8 +189,9 @@ d3.json("/all-data", function (data) {
       })
     })
   });
-})
-createMap(baseballData)
+ 
+  // console.log(baseballData);
+  createGeoData(baseballData);
 };
 
 
