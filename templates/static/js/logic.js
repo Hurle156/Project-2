@@ -1,14 +1,4 @@
-
-
-
-
-
-
-
-
-
-function createMap(p){
-  var myMap = L.map("map", {
+var myMap = L.map("map", {
   center:[29.8283, -98.5795],
   zoom: 3
 });
@@ -19,6 +9,9 @@ L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
   id: "mapbox.streets",
   accessToken: APIkey
 }).addTo(myMap);
+
+function createMap(p){
+
 
 var maxArray = [];
 p.forEach(p=>{
@@ -364,9 +357,8 @@ function changeStates(p){
     })
   });
  
-  console.log(baseballData);
+  
   createGeoData(baseballData);
 };
 
 
-createTeamData("NYY");
