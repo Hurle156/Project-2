@@ -19,7 +19,7 @@ app._static_folder = "templates/static"
 @app.route("/")
 def home():
     """Someone opened this site, wow."""
-    webpage = render_template("index.html")
+    webpage = render_template("index2.html")
 
     return webpage
 

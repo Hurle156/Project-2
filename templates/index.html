@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Graphing Baseball Data</title>
-
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
   <script src="https://d3js.org/d3.v5.min.js"></script>
@@ -14,27 +14,33 @@
   <link rel="stylesheet" type="text/css" href="static/css/style.css">
 </head>
 <body>
-
-  <!-- The div that holds our map -->
+<div class = "container">
+ <div class = "row">
+  <div class = "col-lg-6">
   <div class="form-group">
-    <ul class="list-group" id="filters">
-      <li class = "filter list-group-item">
+    
         <label for="shape">Pick a Year</label>
         <select id ="selYear">
           <option value="all">All</option>
           
         </select>
-      <li class = "filter list-group-item">
+      </div>
+    </div>
+    <div class = "col-lg-6">
+      <div class="form-group">
         <label for="shape">Pick a Team</label>
         <select id ="selTeam">
           <option value="all">All</option>
           
         </select>
-      </li>
-     </ul>
+      </div>
   </div>
-  <div id="map"></div>
-  <script type="text/javascript" src="static/js/config.js"></script>
+</div>
+  <div class ="row">
+
+    <div class = "col-lg-12">
+      <div id="map"></div>
+      <script type="text/javascript" src="static/js/config.js"></script>
   
   <!-- Leaflet JavaScript -->
   <script src="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
@@ -44,6 +50,11 @@
   
   <!-- Our JavaScript -->
   <script type="text/javascript" src="static/js/selector.js"></script>
-  <script type="text/javascript" src="static/js/logic.js"></script>
+  <script type="text/javascript" src="static/js/logic.js"></script>    
+    </div>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
