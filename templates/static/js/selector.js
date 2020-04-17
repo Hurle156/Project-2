@@ -65,6 +65,7 @@ d3.json("all-data", function(data){
 
 function yearChange(event){
     var input = d3.event.target.value
+    
     createYearData(input);
 }
 function teamChange(event){
@@ -72,6 +73,7 @@ function teamChange(event){
     createTeamData(input);
 }
 createYearData("all");
+
     dropDown1.on("change", yearChange);
     dropDown2.on("change", teamChange);
 })

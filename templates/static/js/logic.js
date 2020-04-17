@@ -9,18 +9,12 @@ L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
   id: "mapbox.streets",
   accessToken: APIkey
 }).addTo(myMap);
-
+var legend;
 function createMap(p){
 
 
-var maxArray = [];
-p.forEach(p=>{
-  maxArray.push(p.properties.baseball.picks);
-}) 
-var min = Math.min(...maxArray);
-var max = Math.max(...maxArray);
 
-  
+  createLegend(p);
   colorSelector(p);
   L.geoJson(p, {
     
@@ -63,7 +57,19 @@ var max = Math.max(...maxArray);
     
     }
   }).addTo(myMap);
-  var legend = L.control({ position: "bottomright" });
+  
+}
+ function createLegend(p){
+  
+  var maxArray = [];
+  p.forEach(p=>{
+    maxArray.push(p.properties.baseball.picks);
+  }) 
+  var min = Math.min(...maxArray);
+  var max = Math.max(...maxArray);
+  if(legend instanceof L.Control){myMap.removeControl(legend);}
+   legend = L.control({ position: "bottomright" });
+  
   legend.onAdd = function() {
     var div = L.DomUtil.create("div", "info legend");
     var limits = [min,0, 0, 0, 0, 0, 0, max];
@@ -82,7 +88,7 @@ var max = Math.max(...maxArray);
     limits.forEach(function(limits, index) {
       labels.push("<li style=\"background-color: " + colors[index] + "\"></li>");
     });
-
+    
     div.innerHTML += "<ol>" + labels.join("") + "</ol>";
     return div;
   };
