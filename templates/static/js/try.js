@@ -50,7 +50,7 @@ d3.json("/all-data", function (draftData) {
           //Bonus[d.bonus] = value
       };
   createBonusCombine(totals)
-  console.log(Bonus);
+  // console.log(Bonus);
   //function visual(v){
   // set the dimensions and margins of the graph
   var width = 1000
@@ -85,14 +85,15 @@ d3.json("/all-data", function (draftData) {
       .style("padding", "5px")
     // Three function that change the tooltip when user hover / move / leave a cell
     var mouseover = function(d) {
-      Tooltip
+      Tooltip.style("display", "block")
         .style("opacity", 1)
     }
     var mousemove = function(d) {
       Tooltip
         .html('<u>' + d.team + '</u>' + "<br>" + "$" +d.bonus + " total bonuses paid")
-        .style("left", (d3.mouse(this)[0]+20) + "px")
-        .style("top", (d3.mouse(this)[1]) + "px")
+        .style("left", (d3.mouse(this)) + "px")
+        .style("top", (d3.mouse(this)) + "px")
+        
     }
     var mouseleave = function(d) {
       Tooltip
