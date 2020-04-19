@@ -182,79 +182,164 @@ function createYearData(year){
       if(p.st in stateData){
         
         if(p.round == 1){
-          if(p.pick == 1){
-           stateData[p.st].firstR +=1;
-           stateData[p.st].picks += 1;
-           stateData[p.st].first += 1;
-          }
-          else{
-           stateData[p.st].firstR +=1;
-           stateData[p.st].picks += 1;
-           stateData[p.st].first = stateData[p.st].first;
-          }
-       }
-       else{
-         stateData[p.st].firstR = stateData[p.st].firstR;
-         stateData[p.st].first = stateData[p.st].first;
-         stateData[p.st].picks += 1;
-       }
-     }
-     else{
-       
-       if(p.round == 1){
-          if(p.pick == 1){ 
-           stateData[p.st] = {"firstR" :1, "picks" :1, "first": 1};
-           
-          }
-          else{
-           stateData[p.st] = {"firstR" :1, "picks" :1, "first": 0};
-          }
-       }
-       else{
-         stateData[p.st]= {"firstR" :0, "picks" :1, "first": 0};
-         
-       }
-     }
-    }
-    else if(year == p.year){
-      if(p.st in stateData){
-        
-        if(p.round == 1){
            if(p.pick == 1){
+             if(p.signed == "Signed"){
             stateData[p.st].firstR +=1;
             stateData[p.st].picks += 1;
             stateData[p.st].first += 1;
+            stateData[p.st].signed += 1;
+          }
+          else{
+            stateData[p.st].firstR +=1;
+            stateData[p.st].picks += 1;
+            stateData[p.st].first += 1;
+            stateData[p.st].signed = stateData[p.st].signed;
+          }
            }
            else{
+             if (p.signed == "Signed"){
             stateData[p.st].firstR +=1;
             stateData[p.st].picks += 1;
             stateData[p.st].first = stateData[p.st].first;
+            stateData[p.st].signed += 1;
+             }
+             else {
+              stateData[p.st].firstR +=1;
+              stateData[p.st].picks += 1;
+              stateData[p.st].first = stateData[p.st].first;
+              stateData[p.st].signed = stateData[p.st].signed;
+            }
            }
         }
         else{
+          if(p.signed =="Signed"){
           stateData[p.st].firstR = stateData[p.st].firstR;
           stateData[p.st].first = stateData[p.st].first;
           stateData[p.st].picks += 1;
+          stateData[p.st].signed += 1;
+          }
+          else{
+            stateData[p.st].firstR = stateData[p.st].firstR;
+          stateData[p.st].first = stateData[p.st].first;
+          stateData[p.st].picks += 1;
+          stateData[p.st].signed = stateData[p.st].signed;
+          }
         }
       }
       else{
         
         if(p.round == 1){
            if(p.pick == 1){ 
-            stateData[p.st] = {"firstR" :1, "picks" :1, "first": 1};
-            
+            if(p.signed =="Signed"){
+            stateData[p.st] = {"firstR" :1, "picks" :1, "first": 1, "signed": 1};
+            }
+            else{
+              stateData[p.st] = {"firstR" :1, "picks" :1, "first": 1, "signed": 0};
+            }
            }
            else{
-            stateData[p.st] = {"firstR" :1, "picks" :1, "first": 0};
+            if(p.signed =="Signed"){
+            stateData[p.st] = {"firstR" :1, "picks" :1, "first": 0, "signed": 1};
+            }
+            else{
+              stateData[p.st] = {"firstR" :1, "picks" :1, "first": 0, "signed": 0};
+            }
            }
         }
         else{
-          stateData[p.st]= {"firstR" :0, "picks" :1, "first": 0};
+          if(p.signed=="Signed"){
+            stateData[p.st] = {"firstR" :0, "picks" :1, "first": 0, "signed": 1};
+          }
+          else{
+            stateData[p.st] = {"firstR" :0, "picks" :1, "first": 1, "signed": 0};
+          }
           
         }
       }
     }
+    else if(year == p.year){
+      if(p.st in stateData){
+        
+        if(p.round == 1){
+           if(p.pick == 1){
+             if(p.signed == "Signed"){
+            stateData[p.st].firstR +=1;
+            stateData[p.st].picks += 1;
+            stateData[p.st].first += 1;
+            stateData[p.st].signed += 1;
+          }
+          else{
+            stateData[p.st].firstR +=1;
+            stateData[p.st].picks += 1;
+            stateData[p.st].first += 1;
+            stateData[p.st].signed = stateData[p.st].signed;
+          }
+           }
+           else{
+             if (p.signed == "Signed"){
+            stateData[p.st].firstR +=1;
+            stateData[p.st].picks += 1;
+            stateData[p.st].first = stateData[p.st].first;
+            stateData[p.st].signed += 1;
+             }
+             else {
+              stateData[p.st].firstR +=1;
+              stateData[p.st].picks += 1;
+              stateData[p.st].first = stateData[p.st].first;
+              stateData[p.st].signed = stateData[p.st].signed;
+            }
+           }
+        }
+        else{
+          if(p.signed =="Signed"){
+          stateData[p.st].firstR = stateData[p.st].firstR;
+          stateData[p.st].first = stateData[p.st].first;
+          stateData[p.st].picks += 1;
+          stateData[p.st].signed += 1;
+          }
+          else{
+            stateData[p.st].firstR = stateData[p.st].firstR;
+          stateData[p.st].first = stateData[p.st].first;
+          stateData[p.st].picks += 1;
+          stateData[p.st].signed = stateData[p.st].signed;
+          }
+        }
+      }
+      else{
+        
+        if(p.round == 1){
+           if(p.pick == 1){ 
+            if(p.signed =="Signed"){
+            stateData[p.st] = {"firstR" :1, "picks" :1, "first": 1, "signed": 1};
+            }
+            else{
+              stateData[p.st] = {"firstR" :1, "picks" :1, "first": 1, "signed": 0};
+            }
+           }
+           else{
+            if(p.signed =="Signed"){
+            stateData[p.st] = {"firstR" :1, "picks" :1, "first": 0, "signed": 1};
+            }
+            else{
+              stateData[p.st] = {"firstR" :1, "picks" :1, "first": 0, "signed": 0};
+            }
+           }
+        }
+        else{
+          if(p.signed=="Signed"){
+            stateData[p.st] = {"firstR" :0, "picks" :1, "first": 0, "signed": 1};
+          }
+          else{
+            stateData[p.st] = {"firstR" :0, "picks" :1, "first": 1, "signed": 0};
+          }
+          
+        }
+      }
+    }
+    
   });
+ 
+  pieChart(stateData);
   changeStates(stateData);
   });
 };
@@ -270,79 +355,162 @@ function createTeamData(team){
       if(p.st in stateData){
         
         if(p.round == 1){
-          if(p.pick == 1){
-           stateData[p.st].firstR +=1;
-           stateData[p.st].picks += 1;
-           stateData[p.st].first += 1;
-          }
-          else{
-           stateData[p.st].firstR +=1;
-           stateData[p.st].picks += 1;
-           stateData[p.st].first = stateData[p.st].first;
-          }
-       }
-       else{
-         stateData[p.st].firstR = stateData[p.st].firstR;
-         stateData[p.st].first = stateData[p.st].first;
-         stateData[p.st].picks += 1;
-       }
-     }
-     else{
-       
-       if(p.round == 1){
-          if(p.pick == 1){ 
-           stateData[p.st] = {"firstR" :1, "picks" :1, "first": 1};
-           
-          }
-          else{
-           stateData[p.st] = {"firstR" :1, "picks" :1, "first": 0};
-          }
-       }
-       else{
-         stateData[p.st]= {"firstR" :0, "picks" :1, "first": 0};
-         
-       }
-     }
-    }
-    else if(team == p.team){
-      if(p.st in stateData){
-        
-        if(p.round == 1){
            if(p.pick == 1){
+             if(p.signed == "Signed"){
             stateData[p.st].firstR +=1;
             stateData[p.st].picks += 1;
             stateData[p.st].first += 1;
+            stateData[p.st].signed += 1;
+          }
+          else{
+            stateData[p.st].firstR +=1;
+            stateData[p.st].picks += 1;
+            stateData[p.st].first += 1;
+            stateData[p.st].signed = stateData[p.st].signed;
+          }
            }
            else{
+             if (p.signed == "Signed"){
             stateData[p.st].firstR +=1;
             stateData[p.st].picks += 1;
             stateData[p.st].first = stateData[p.st].first;
+            stateData[p.st].signed += 1;
+             }
+             else {
+              stateData[p.st].firstR +=1;
+              stateData[p.st].picks += 1;
+              stateData[p.st].first = stateData[p.st].first;
+              stateData[p.st].signed = stateData[p.st].signed;
+            }
            }
         }
         else{
+          if(p.signed =="Signed"){
           stateData[p.st].firstR = stateData[p.st].firstR;
           stateData[p.st].first = stateData[p.st].first;
           stateData[p.st].picks += 1;
+          stateData[p.st].signed += 1;
+          }
+          else{
+            stateData[p.st].firstR = stateData[p.st].firstR;
+          stateData[p.st].first = stateData[p.st].first;
+          stateData[p.st].picks += 1;
+          stateData[p.st].signed = stateData[p.st].signed;
+          }
         }
       }
       else{
         
         if(p.round == 1){
            if(p.pick == 1){ 
-            stateData[p.st] = {"firstR" :1, "picks" :1, "first": 1};
-            
+            if(p.signed =="Signed"){
+            stateData[p.st] = {"firstR" :1, "picks" :1, "first": 1, "signed": 1};
+            }
+            else{
+              stateData[p.st] = {"firstR" :1, "picks" :1, "first": 1, "signed": 0};
+            }
            }
            else{
-            stateData[p.st] = {"firstR" :1, "picks" :1, "first": 0};
+            if(p.signed =="Signed"){
+            stateData[p.st] = {"firstR" :1, "picks" :1, "first": 0, "signed": 1};
+            }
+            else{
+              stateData[p.st] = {"firstR" :1, "picks" :1, "first": 0, "signed": 0};
+            }
            }
         }
         else{
-          stateData[p.st]= {"firstR" :0, "picks" :1, "first": 0};
+          if(p.signed=="Signed"){
+            stateData[p.st] = {"firstR" :0, "picks" :1, "first": 0, "signed": 1};
+          }
+          else{
+            stateData[p.st] = {"firstR" :0, "picks" :1, "first": 1, "signed": 0};
+          }
+          
+        }
+      }
+    }
+    else if(team == p.team){
+      if(p.st in stateData){
+        
+        if(p.round == 1){
+           if(p.pick == 1){
+             if(p.signed == "Signed"){
+            stateData[p.st].firstR +=1;
+            stateData[p.st].picks += 1;
+            stateData[p.st].first += 1;
+            stateData[p.st].signed += 1;
+          }
+          else{
+            stateData[p.st].firstR +=1;
+            stateData[p.st].picks += 1;
+            stateData[p.st].first += 1;
+            stateData[p.st].signed = stateData[p.st].signed;
+          }
+           }
+           else{
+             if (p.signed == "Signed"){
+            stateData[p.st].firstR +=1;
+            stateData[p.st].picks += 1;
+            stateData[p.st].first = stateData[p.st].first;
+            stateData[p.st].signed += 1;
+             }
+             else {
+              stateData[p.st].firstR +=1;
+              stateData[p.st].picks += 1;
+              stateData[p.st].first = stateData[p.st].first;
+              stateData[p.st].signed = stateData[p.st].signed;
+            }
+           }
+        }
+        else{
+          if(p.signed =="Signed"){
+          stateData[p.st].firstR = stateData[p.st].firstR;
+          stateData[p.st].first = stateData[p.st].first;
+          stateData[p.st].picks += 1;
+          stateData[p.st].signed += 1;
+          }
+          else{
+            stateData[p.st].firstR = stateData[p.st].firstR;
+          stateData[p.st].first = stateData[p.st].first;
+          stateData[p.st].picks += 1;
+          stateData[p.st].signed = stateData[p.st].signed;
+          }
+        }
+      }
+      else{
+        
+        if(p.round == 1){
+           if(p.pick == 1){ 
+            if(p.signed =="Signed"){
+            stateData[p.st] = {"firstR" :1, "picks" :1, "first": 1, "signed": 1};
+            }
+            else{
+              stateData[p.st] = {"firstR" :1, "picks" :1, "first": 1, "signed": 0};
+            }
+           }
+           else{
+            if(p.signed =="Signed"){
+            stateData[p.st] = {"firstR" :1, "picks" :1, "first": 0, "signed": 1};
+            }
+            else{
+              stateData[p.st] = {"firstR" :1, "picks" :1, "first": 0, "signed": 0};
+            }
+           }
+        }
+        else{
+          if(p.signed=="Signed"){
+            stateData[p.st] = {"firstR" :0, "picks" :1, "first": 0, "signed": 1};
+          }
+          else{
+            stateData[p.st] = {"firstR" :0, "picks" :1, "first": 1, "signed": 0};
+          }
           
         }
       }
     }
   });
+  pieChart(stateData);
   changeStates(stateData);
   });
 
@@ -368,3 +536,39 @@ function changeStates(p){
 };
 
 
+function pieChart(p){
+  signed = 0;
+  total = 0;
+  Object.entries(p).forEach(([key, value])=>{
+    signed += value.signed;
+    total += value.picks;
+  });
+ 
+  unsigned = total - signed;
+  data = {
+    datasets:
+    [{
+      data: [signed, unsigned],
+      backgroundColor:[
+        "green",
+        "red"
+      ]
+    }],
+    labels:[
+      "Signed",
+      "Un-Signed"
+    ]
+  }
+  var ctx = document.getElementById('pieChart');
+  var myPieChart = new Chart(ctx, {
+    type: "pie",
+    data: data,
+    options:{
+      rotation: .5,
+      animation:{
+        animateScale: true
+      },
+    }
+  })
+
+}

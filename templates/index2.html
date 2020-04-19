@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>The MLB Draft</title>
+        <title>The MLB Draft By the States</title>
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v5.12.1/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
@@ -15,6 +15,7 @@
         <link href="static/css/styles.css" rel="stylesheet" />
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
         <script src="https://d3js.org/d3.v5.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="static/css/Chart.css">
         <link rel="stylesheet" type="text/css" href="static/css/style.css">
     </head>
     <body id="page-top">
@@ -37,7 +38,7 @@
         <section class="page-section portfolio" id="portfolio">
             <div class="container">
                 <!-- Portfolio Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Choropleth</h2>
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">US Draft Map</h2>
                 <div class="divider-custom">
                     <div class="divider-custom-line"></div>
                     <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
@@ -66,7 +67,7 @@
                   </div>
                     <div class ="row">
                   
-                      <div class = "col-lg-12">
+                      <div class = "col-lg-8">
                         <div id="map"></div>
                         <script type="text/javascript" src="static/js/config.js"></script>
                     
@@ -77,8 +78,12 @@
                   
                     
                     <!-- Our JavaScript -->
+                    <script type="text/javascript" src="static/js/Chart.js"></script>
                     <script type="text/javascript" src="static/js/selector.js"></script>
                     <script type="text/javascript" src="static/js/logic.js"></script>    
+                      </div>
+                      <div classs = "col-lg-4">
+                        <canvas id = "pieChart" height="400" width="200"></canvas>
                       </div>
                       </div>
                     </div>
